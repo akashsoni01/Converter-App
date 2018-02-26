@@ -22,12 +22,12 @@ class ConverterViewController: UIViewController {
     
     
     
-    var fromUnit:String? = "km" {
+    var fromUnit:String = "km" {
         didSet{
             performOperation()
         }
     }
-    var toUnit:String? = "km" {
+    var toUnit:String = "km" {
         didSet{
             performOperation()
         }
@@ -54,10 +54,10 @@ class ConverterViewController: UIViewController {
     }
 
     @IBAction func setFrom(_ sender: UIButton) {
-        fromUnit = sender.currentTitle
+        fromUnit = sender.currentTitle!
     }
     @IBAction func setTo(_ sender: UIButton) {
-        toUnit = sender.currentTitle
+        toUnit = sender.currentTitle!
     }
     func invertColor(with button:UIButton){
         if(button.backgroundColor != #colorLiteral(red: 0.9411764741, green: 0.4980392158, blue: 0.3529411852, alpha: 1)){
@@ -67,9 +67,9 @@ class ConverterViewController: UIViewController {
         }
     }
     func performOperation(){
-        valueConverted = converter.convertValues(vaule: valueForConversion!, conversionUnits["\(fromUnit!)"] ?? UnitLength.kilometers, to: conversionUnits["\(toUnit)!"] ?? UnitLength.kilometers)
+        valueConverted = converter.convertValues(vaule: valueForConversion!, lengthUnits["\(fromUnit)"]!, to: lengthUnits["\(toUnit)"]!)
     }
     
-    var conversionUnits = ["km":UnitLength.kilometers ,"m":UnitLength.meters]
+    var lengthUnits = ["km":UnitLength.kilometers ,"m":UnitLength.meters,"cm":UnitLength.centimeters,"feet":UnitLength.feet,"inch":UnitLength.inches]
     
 }
