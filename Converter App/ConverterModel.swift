@@ -8,5 +8,9 @@
 
 import Foundation
 class ConverterModel{
-    
+    func convertValues(vaule:Double,_ unit1:UnitLength,to unit2:UnitLength) -> Double{
+        let value1 = Measurement(value: vaule, unit: unit2)
+        return value1.converted(to: unit2).value
+    }
+
 }

@@ -36,6 +36,7 @@
                                 <state key="normal" title="km"/>
                                 <connections>
                                     <action selector="ConvewrtValues:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vFw-Vt-gwQ"/>
+                                    <action selector="setTo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1BI-hZ-o1B"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QPW-Od-irO">
@@ -69,6 +70,7 @@
                                 <state key="normal" title="m"/>
                                 <connections>
                                     <action selector="ConvewrtValues:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Mdy-MP-waA"/>
+                                    <action selector="setFrom:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nER-ak-VVa"/>
                                 </connections>
                             </button>
                         </subviews>

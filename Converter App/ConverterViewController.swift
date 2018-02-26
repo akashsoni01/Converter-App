@@ -13,6 +13,15 @@ class ConverterViewController: UIViewController {
     
     @IBOutlet weak var _ValueForConversion: UITextField!
     @IBOutlet weak var _ValueConverted: UILabel!
+    
+    
+    
+    
+    var converter = ConverterModel()
+    
+    
+    
+    
     var fromUnit:String? = "km" {
         didSet{
             performOperation()
@@ -23,6 +32,9 @@ class ConverterViewController: UIViewController {
             performOperation()
         }
     }
+    
+    
+    
     var valueForConversion:Double?{
         get{
             return Double(_ValueForConversion.text!)
@@ -40,6 +52,13 @@ class ConverterViewController: UIViewController {
     @IBAction func ConvewrtValues(_ sender: UIButton) {
         invertColor(with: sender)
     }
+
+    @IBAction func setFrom(_ sender: UIButton) {
+        fromUnit = sender.currentTitle
+    }
+    @IBAction func setTo(_ sender: UIButton) {
+        toUnit = sender.currentTitle
+    }
     func invertColor(with button:UIButton){
         if(button.backgroundColor != #colorLiteral(red: 0.9411764741, green: 0.4980392158, blue: 0.3529411852, alpha: 1)){
             button.backgroundColor = #colorLiteral(red: 0.9411764741, green: 0.4980392158, blue: 0.3529411852, alpha: 1)
@@ -47,14 +66,10 @@ class ConverterViewController: UIViewController {
             button.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         }
     }
-    @IBAction func setFrom(_ sender: UIButton) {
-        fromUnit = sender.currentTitle
-    }
-    @IBAction func setTo(_ sender: UIButton) {
-        toUnit = sender.currentTitle
-    }
     func performOperation(){
-        valueConverted = 78
+        valueConverted = converter.convertValues(vaule: valueForConversion!, conversionUnits["\(fromUnit!)"] ?? UnitLength.kilometers, to: conversionUnits["\(toUnit)!"] ?? UnitLength.kilometers)
     }
+    
+    var conversionUnits = ["km":UnitLength.kilometers ,"m":UnitLength.meters]
     
 }
