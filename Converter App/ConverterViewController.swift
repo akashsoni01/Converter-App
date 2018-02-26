@@ -16,11 +16,11 @@ class ConverterViewController: UIViewController {
     
     
     
-    
     var converter = ConverterModel()
     
     
     
+    var typeOfConverter = "length"
     
     var fromUnit:String = "km" {
         didSet{
