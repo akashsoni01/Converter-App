@@ -70,6 +70,6 @@ class ConverterViewController: UIViewController {
         valueConverted = converter.convertValues(vaule: valueForConversion!, lengthUnits["\(fromUnit)"]!, to: lengthUnits["\(toUnit)"]!)
     }
     
-    var lengthUnits = ["km":UnitLength.kilometers ,"m":UnitLength.meters,"cm":UnitLength.centimeters,"feet":UnitLength.feet,"inch":UnitLength.inches]
-    
+    //var lengthUnits = ["km":UnitLength.kilometers ,"m":UnitLength.meters,"cm":UnitLength.centimeters,"feet":UnitLength.feet,"inch":UnitLength.inches]
+    //var unitsIhave = objectOfUnt.functionThatReturnDictonary
 }
