@@ -10,16 +10,16 @@ import UIKit
 
 class ConverterViewController: UIViewController {
     
-    
+    //Outlets for our display and our input source
     @IBOutlet weak var _ValueForConversion: UITextField!
     @IBOutlet weak var _ValueConverted: UILabel!
     
     
-    
+    //model for conversion
     var converter = ConverterModel()
     
     
-    
+    //defines possible types in measurment type
     var typeOfConverter = "length"
     
     var fromUnit:String = "km" {
@@ -32,7 +32,15 @@ class ConverterViewController: UIViewController {
             performOperation()
         }
     }
-    
+    @IBAction func setFrom(_ sender: UIButton) {
+        fromUnit = sender.currentTitle!
+    }
+    @IBAction func setTo(_ sender: UIButton) {
+        toUnit = sender.currentTitle!
+    }
+        func performOperation(){
+        valueConverted = converter.convertValues(vaule: valueForConversion!, lengthUnits["\(fromUnit)"]!, to: lengthUnits["\(toUnit)"]!)
+    }
     
     
     var valueForConversion:Double?{
@@ -49,15 +57,10 @@ class ConverterViewController: UIViewController {
         }
     }
     
+    
+    // Mistakes
     @IBAction func ConvewrtValues(_ sender: UIButton) {
         invertColor(with: sender)
-    }
-
-    @IBAction func setFrom(_ sender: UIButton) {
-        fromUnit = sender.currentTitle!
-    }
-    @IBAction func setTo(_ sender: UIButton) {
-        toUnit = sender.currentTitle!
     }
     func invertColor(with button:UIButton){
         if(button.backgroundColor != #colorLiteral(red: 0.9411764741, green: 0.4980392158, blue: 0.3529411852, alpha: 1)){
@@ -66,10 +69,14 @@ class ConverterViewController: UIViewController {
             button.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         }
     }
-    func performOperation(){
-        valueConverted = converter.convertValues(vaule: valueForConversion!, lengthUnits["\(fromUnit)"]!, to: lengthUnits["\(toUnit)"]!)
-    }
-    
+
+
+
+
+    //changes to be continue....
     var lengthUnits = ["km":UnitLength.kilometers ,"m":UnitLength.meters,"cm":UnitLength.centimeters,"feet":UnitLength.feet,"inch":UnitLength.inches]
+    
+    //dictonary for our value type
+   // var typeOfUits = ["length":UnitLength,"time":UnitTime]
     
 }
