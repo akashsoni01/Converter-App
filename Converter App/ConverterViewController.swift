@@ -20,8 +20,7 @@ class ConverterViewController: UIViewController {
     
     
     //defines possible types in measurment type
-    var typeOfConverter = "length"
-    
+    var typeOfConverter = "length"    
     var fromUnit:String = "km" {
         didSet{
             performOperation()
@@ -69,6 +68,8 @@ class ConverterViewController: UIViewController {
             button.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         }
     }
+    
+    //view didLoad     change in view form our segue identifire
 
 
 
