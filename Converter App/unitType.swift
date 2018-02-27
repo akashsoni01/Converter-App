@@ -1,4 +1,4 @@
- //
+//
 //  unitType.swift
 //  Converter App
 //
@@ -12,4 +12,6 @@ class UntiType {
   //var unitlength,time,area,distance,speed
   // 5 init 
   // 5 functions that return dictonary
+ //var lengthUnits = ["km":UnitLength.kilometers ,"m":UnitLength.meters,"cm":UnitLength.centimeters,"feet":UnitLength.feet,"inch":UnitLength.inches]
+   
 }
